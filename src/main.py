@@ -4,4 +4,3 @@
 
 if __name__ == "__main__":
     print("Hello World! How is it going?")
-    print("prety well thank you!")
