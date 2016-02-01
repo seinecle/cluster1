@@ -3,4 +3,4 @@
 # and open the template in the editor.
 
 if __name__ == "__main__":
-    print("Hello World! how is it going?")
+    print("Hello World! How is it going?")
