@@ -27,32 +27,78 @@ class Network:
             self.node_degrees = []
         elif node_attributes is None and node_degrees is not None:
             self.node_attributes = []
-            if len(adj_matrix[0]) == len(node_degrees):
+            if len(adj_matrix) == len(node_degrees):
                 self.node_degrees = node_degrees
             else:
                 print("sizes of input elements don't match!")
         elif node_attributes is not None and node_degrees is None:
             self.node_degrees = []
-            if len(adj_matrix[0]) == len(node_attributes):
+            if len(adj_matrix) == len(node_attributes):
                 self.node_attributes = node_attributes
             else:
                 print("sizes of input elements don't match!")
         else:
-            if len(adj_matrix[0]) == len(node_attributes[0]) and len(adj_matrix[0]) == len(node_degrees):
+            if len(adj_matrix) == len(node_attributes) and len(adj_matrix) == len(node_degrees):
                 self.node_attributes = node_attributes
                 self.node_degrees = node_degrees
             else:
                 print("sizes of input elements don't match!")
 
 
-#    def fuse_nodes(self,other_network):
-#        if len(self.nodes) == len(other_network.nodes):
-#            net= [] + other_network.nodes
-#            for i, attribute in enumerate(net):
-#                self.nodes[i] += attribute
-#            return net
-#        else:
-#            return print("graph sizes don't match")
+    def tot_num_edges(self):
+        """computes the total number of edges in the graph"""
+        m = 0
+        for i, line_i in enumerate(self.matrix):
+            m += sum(nb_edges for nb_edges in line_i)
+        return m
+    
+    def modularity_bare(self):
+        """computes the 'bare' modularity of the graph of communities"""
+        m = self.tot_num_edges()
+        q_1 = 0.
+        for i, line_i in enumerate(self.matrix):
+            q_1 += line_i[i]
+        q_1 = q_1 / m
+        q_2 = sum( d ** 2 for d in self.node_degrees) / 4 / m / m 
+        return q_1 - q_2
+
+    def fuse_nodes(self,node_1,node_2):
+        """ fuses two nodes, adds their degrees, merges their edges, and
+        updates the adjacency matrix, and adds their attributes"""
+        node_keep = min(node_1, node_2)
+        node_remove = max(node_1, node_2)
+
+        # add degrees
+        self.node_degrees[node_keep] += self.node_degrees[node_remove]
+        del self.node_degrees[node_remove]
+        
+        # merge edges and update adjacency matrix
+        # - update line #node_keep
+        edges_between_nodes_to_fuse = self.matrix[node_keep][node_remove]
+        loops_on_node_to_remove = self.matrix[node_remove][node_remove]
+        for k, edges in enumerate(self.matrix[node_remove]):
+            if k != node_keep and k != node_remove:
+                self.matrix[node_keep][k] += edges
+        self.matrix[node_keep][node_keep] += edges_between_nodes_to_fuse + loops_on_node_to_remove
+      
+        # - copy line #node_keep into column #node_keep (symetric matrix!)
+        for k, edges in enumerate(self.matrix[node_keep]):
+            self.matrix[k][node_keep] = edges
+        
+        # - delete line #node_remove
+        del self.matrix[node_remove]
+        
+        # - delete column #node_remove
+        for i , _ in enumerate(self.matrix):
+            del self.matrix[i][node_remove]
+        
+        # add attributes
+        # choose a merging function... start with vector add
+
+
+        return self
+        
+
 
 
 
