@@ -46,7 +46,7 @@ net_2.fuse_nodes(0,2)
 # this shouldn't change
 print("total number of edges of fused network = ", net_2.tot_num_edges())
 
-# why should be changing
+# this should be changing
 print("bare modularity of fused network = ", net_2.modularity_bare())
 
 # comparision of initial and fused network
