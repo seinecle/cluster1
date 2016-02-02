@@ -34,13 +34,22 @@ print(net_4.matrix, net_4.node_attributes, net_4.node_degrees)
 
 
 # test modularity_bare
-print(net_1.tot_num_edges())
-print(net_1.modularity_bare())
+print("total number of edges of initial network = ", net_1.tot_num_edges())
+print("bare moduularity of initial network = ", net_1.modularity_bare())
 
 
 # test fuse_node
+print()
 print("fuse nodes 0 and 2")
 net_2.fuse_nodes(0,2)
 
-print("initial degrees = ", net_1.node_degrees, "fused degrees = ", net_2.node_degrees)
-print("initial matrix = ", net_1.matrix, "fused matrix = ", net_2.matrix)
+# this shouldn't change
+print("total number of edges of fused network = ", net_2.tot_num_edges())
+
+# why should be changing
+print("bare modularity of fused network = ", net_2.modularity_bare())
+
+# comparision of initial and fused network
+print("initial matrix = ", net_1.matrix, " vs fused matrix = ", net_2.matrix)
+print("initial degrees = ", net_1.node_degrees, " vs fused degrees = ", net_2.node_degrees)
+print("initial attributes = ", net_1.node_attributes, " vs fused attributes = ", net_2.node_attributes)

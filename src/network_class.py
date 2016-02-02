@@ -92,9 +92,9 @@ class Network:
         for i , _ in enumerate(self.matrix):
             del self.matrix[i][node_remove]
         
-        # add attributes
-        # choose a merging function... start with vector add
-
+        # add attributes # TO DO: choose a merging function
+        self.node_attributes[node_keep] = vect_add(self.node_attributes[node_keep], self.node_attributes[node_remove])
+        del self.node_attributes[node_remove]
 
         return self
         
@@ -114,5 +114,9 @@ def get_graph_degrees(adj_matrix):
                 deg[i] += link_ij
     return deg
 
+
+def vect_add(u,v):
+    s =  [x + y for x,y in zip(u,v)]
+    return s
 
 
