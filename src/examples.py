@@ -5,6 +5,13 @@ Created on Tue Feb  2 12:31:16 2016
 @author: savinien
 """
 
+
+##
+#
+# testing network_class
+#
+##
+
 import network_class
 
 adj_matrix = [[1, 2, 1, 1], [2, 3, 2, 1], [1, 2, 1, 5], [1, 1, 5, 0]]
@@ -53,3 +60,42 @@ print("bare modularity of fused network = ", net_2.modularity_bare())
 print("initial matrix = ", net_1.matrix, " vs fused matrix = ", net_2.matrix)
 print("initial degrees = ", net_1.node_degrees, " vs fused degrees = ", net_2.node_degrees)
 print("initial attributes = ", net_1.node_attributes, " vs fused attributes = ", net_2.node_attributes)
+
+
+
+
+
+##
+#
+# testing entropy
+#
+##
+
+import entropy
+from matplotlib import pyplot as plt
+
+xs = [x / 100 for x in range(101)]
+plt.plot(xs,[entropy(x) for x in xs],'r-')
+plt.axis([0,1,0,.8])
+plt.title("entropy(x) = - x*log(x) - (1-x)*log(1-x)")
+plt.show()
+
+
+print("testing entropy")
+u=[1,0,0,0]
+v=[0,1,0,0]
+w=[0,0,1,0]
+x=[0,0,0,1]
+
+print("cluster entropy =", cluster_entropy([u,v,w,x]), 
+      " cluster match = ", cluster_match([u,v,w,x]))
+for i in range(3):
+    x[i]=1
+    print("cluster entropy =", cluster_entropy([u,v,w,x]), 
+          " cluster match = ", cluster_match([u,v,w,x]))
+
+
+
+
+
+
