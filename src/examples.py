@@ -71,7 +71,7 @@ print("initial attributes = ", net_1.node_attributes, " vs fused attributes = ",
 #
 ##
 
-import entropy
+import entropy_functions
 from matplotlib import pyplot as plt
 
 xs = [x / 100 for x in range(101)]

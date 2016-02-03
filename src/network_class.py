@@ -10,6 +10,29 @@ import numpy as np
 import scipy as sp
 
 
+def vect_add(u,v):
+    s =  [x + y for x,y in zip(u,v)]
+    return s
+
+def list_merge(list_keep,list_remove):
+    """ merges the two lists """
+    l=[]
+    if type(list_keep[0]) is int and type(list_remove[0]) is int:
+        l.append(list_keep)
+        l.append(list_remove)
+    elif type(list_keep[0]) is int and type(list_remove[0]) is list:
+        l=list_remove[:]
+        l.append(list_keep)
+    elif type(list_keep[0]) is list and type(list_remove[0]) is int:
+        l=list_keep[:]
+        l.append(list_remove)
+    else:
+        l=list_keep[:]
+        for _, attr in enumerate(list_remove):
+            l.append(attr)
+    return l   
+
+
 class Network:
     """class of networks: graphs (non oriented), with attributes, and node degrees"""
 
@@ -62,7 +85,7 @@ class Network:
         q_2 = sum( d ** 2 for d in self.node_degrees) / 4 / m / m 
         return q_1 - q_2
 
-    def fuse_nodes(self,node_1,node_2):
+    def fuse_nodes(self,node_1,node_2, method = vect_add):
         """ fuses two nodes, adds their degrees, merges their edges, and
         updates the adjacency matrix, and adds their attributes"""
         node_keep = min(node_1, node_2)
@@ -93,7 +116,7 @@ class Network:
             del self.matrix[i][node_remove]
         
         # add attributes # TO DO: choose a merging function
-        self.node_attributes[node_keep] = vect_add(self.node_attributes[node_keep], self.node_attributes[node_remove])
+        self.node_attributes[node_keep] = method(self.node_attributes[node_keep], self.node_attributes[node_remove])
         del self.node_attributes[node_remove]
 
         return self
@@ -115,8 +138,5 @@ def get_graph_degrees(adj_matrix):
     return deg
 
 
-def vect_add(u,v):
-    s =  [x + y for x,y in zip(u,v)]
-    return s
 
 
