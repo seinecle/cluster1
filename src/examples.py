@@ -21,28 +21,20 @@ deg=get_graph_degrees(adj_matrix)
 # default constructor
 net_1 = Network(adj_matrix)
 net_1.node_attributes = node_att
-net_1.node_degrees = deg
+print(net_1.node_degrees == deg)
 print(net_1.matrix, net_1.node_attributes, net_1.node_degrees)
 
-# constructor with some arguments
+# constructor with attributes
 import copy
 adj_mat = copy.deepcopy(adj_matrix) # indep copy
-net_2 = Network(adj_mat,node_attributes=node_att.copy())
-net_2.node_degrees = deg.copy()
+node_att_2 = copy.deepcopy(node_att)
+net_2 = Network(adj_mat, node_attributes = node_att_2)
 print(net_2.matrix, net_2.node_attributes, net_2.node_degrees)
-
-net_3 = Network(adj_mat,node_degrees = deg.copy())
-net_3.node_attributes = node_att.copy()
-print(net_3.matrix, net_3.node_attributes, net_3.node_degrees)
-
-# constructor with all arguments
-net_4 = Network(adj_mat, node_attributes = node_att.copy(), node_degrees = deg.copy())
-print(net_4.matrix, net_4.node_attributes, net_4.node_degrees)
 
 
 # test modularity_bare
-print("total number of edges of initial network = ", net_1.tot_num_edges())
-print("bare moduularity of initial network = ", net_1.modularity_bare())
+print("total number of edges of initial network = ", tot_num_edges(net_1.matrix))
+print("bare modularity of initial network = ", net_1.modularity_bare())
 
 
 # test fuse_node
@@ -51,7 +43,7 @@ print("fuse nodes 0 and 2")
 net_2.fuse_nodes(0,2)
 
 # this shouldn't change
-print("total number of edges of fused network = ", net_2.tot_num_edges())
+print("total number of edges of fused network = ", tot_num_edges(net_2.matrix))
 
 # this should be changing
 print("bare modularity of fused network = ", net_2.modularity_bare())
