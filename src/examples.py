@@ -13,19 +13,27 @@ Created on Tue Feb  2 12:31:16 2016
 ##
 
 import network_class
+import copy
 
 adj_matrix = [[1, 2, 1, 1], [2, 3, 2, 1], [1, 2, 1, 5], [1, 1, 5, 0]]
 node_att=[[1,0],[1,1],[0,1],[0,0]]
 deg=get_graph_degrees(adj_matrix)
 
 # default constructor
+net_0 = Network()
+net_0.matrix = adj_matrix
+net_0.node_degrees = deg
+net_0.node_attributes = node_att
+print("net_0: ",net_0.matrix, net_0.node_attributes, net_0.node_degrees)
+net = net_0.copy()
+print("net_0.copy() :",net.matrix, net.node_attributes, net.node_degrees)
+
+# constructor with attributes
 net_1 = Network(adj_matrix)
 net_1.node_attributes = node_att
 print(net_1.node_degrees == deg)
 print(net_1.matrix, net_1.node_attributes, net_1.node_degrees)
 
-# constructor with attributes
-import copy
 adj_mat = copy.deepcopy(adj_matrix) # indep copy
 node_att_2 = copy.deepcopy(node_att)
 net_2 = Network(adj_mat, node_attributes = node_att_2)

@@ -8,7 +8,7 @@ Created on Mon Feb  1 14:41:27 2016
 import math
 import numpy as np
 import scipy as sp
-
+import copy
 
 def tot_num_edges(adj_matrix):
     """computes the total number of edges in the graph"""
@@ -46,21 +46,25 @@ def list_merge(list_keep,list_remove):
 class Network:
     """class of networks: graphs (non oriented), with attributes, and node degrees"""
 
-    def __init__(self, adj_matrix, node_attributes=None):
+    def __init__(self, adj_matrix = None, node_attributes = None):
         """ - adj_matrix : ajacency matrix of the graph, size n * n, symetric
             - nodes_attributes : matrix, size n * n_a, where n_a is the number 
             of attributes, ie lines = vectors representing nodes attributes.
             By default this is an empty list (graph without attributes). """        
-
-        self.matrix = adj_matrix
-        self.node_degrees = get_graph_degrees(adj_matrix)
-        if node_attributes is None:
+        if adj_matrix is None:
+            self.matrix = []
             self.node_attributes = []
-        else: 
-            if len(adj_matrix) == len(node_attributes):
-                self.node_attributes = node_attributes
-            else:
-                print("sizes of attributes' list and graph matrix don't match!")
+            self.node_degrees = []
+        else:
+            self.matrix = adj_matrix
+            self.node_degrees = get_graph_degrees(adj_matrix)
+            if node_attributes is None:
+                self.node_attributes = []
+            else: 
+                if len(adj_matrix) == len(node_attributes):
+                    self.node_attributes = node_attributes
+                else:
+                    print("sizes of attributes' list and graph matrix don't match!")
 
    
     def modularity_bare(self):
@@ -109,7 +113,13 @@ class Network:
 
         return self
         
-
+    def copy(self):
+        net = Network()
+        net.matrix = copy.deepcopy(self.matrix)
+        net.node_attributes = copy.deepcopy(self.node_attributes)
+        net.node_degrees = copy.deepcopy(self.node_degrees)
+        return net
+    
 
 
 
