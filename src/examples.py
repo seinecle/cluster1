@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Feb  2 12:31:16 2016
-
 @author: savinien
 """
 
@@ -47,7 +46,7 @@ print("bare modularity of initial network = ", net_1.modularity_bare())
 
 # test fuse_node
 print()
-print("fuse nodes 0 and 2")
+print("fuse nodes 0 and 2, with vector add of attributes")
 net_2.fuse_nodes(0,2)
 
 # this shouldn't change
@@ -60,6 +59,22 @@ print("bare modularity of fused network = ", net_2.modularity_bare())
 print("initial matrix = ", net_1.matrix, " vs fused matrix = ", net_2.matrix)
 print("initial degrees = ", net_1.node_degrees, " vs fused degrees = ", net_2.node_degrees)
 print("initial attributes = ", net_1.node_attributes, " vs fused attributes = ", net_2.node_attributes)
+
+print()
+print("fuse nodes 0 and 2, with merging of attributes")
+net_0.fuse_nodes(0,2, method = list_merge)
+
+# this shouldn't change
+print("total number of edges of fused network = ", tot_num_edges(net_0.matrix))
+
+# this should be changing
+print("bare modularity of fused network = ", net_0.modularity_bare())
+
+# comparision of initial and fused network
+print("initial matrix = ", net_1.matrix, " vs fused matrix = ", net_0.matrix)
+print("initial degrees = ", net_1.node_degrees, " vs fused degrees = ", net_0.node_degrees)
+print("initial attributes = ", net_1.node_attributes, " vs fused attributes = ", net_0.node_attributes)
+
 
 
 
@@ -93,9 +108,3 @@ for i in range(3):
     x[i]=1
     print("cluster entropy =", cluster_entropy([u,v,w,x]), 
           " cluster match = ", cluster_match([u,v,w,x]))
-
-
-
-
-
-
