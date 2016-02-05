@@ -12,10 +12,6 @@ Created on Fri Feb  5 14:09:15 2016
 ##
 
 
-import math
-import numpy as np
-import scipy as sp
-
 # elementary bloc for communities
 bloc = [ [1 for _ in range(10)] for _ in range(10)]
 for i, line_i in enumerate(bloc):
