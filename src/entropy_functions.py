@@ -50,19 +50,32 @@ def entropy(p):
         return 0.
 
 
-def cluster_entropy(cluster_attributes, similarity_measure = attribute_match):
+def cluster_entropy(cluster_of_attributes, similarity_measure = attribute_match):
     """ computes the entropy of a cluster's attributes, according to a similarity
         measure to specify:
         - input: - list [u_0,... u_(k-1)] of vectors of the cluster's attributes
                  - similarity measure (default = attribute_match)
         - output: sum of entropy(similarity_measure(u_i,u_j)) (pairwise distinct)"""
-    if len(cluster_attributes) == 1:
-        return 0. # if cluster is a single node, entropy = 0
+    # if the cluster is made of a single node (ie its list of attributes 
+    # reduces to a single vector), then entropy = 0
+    if type(cluster_of_attributes[0]) is not list:
+        return 0.
+
+    # if the cluster has more than 1 node, then add up the entropies of 
+    # distinct pairs of nodes' attributes
     else:
         ent = 0.
-        for i, u_i in enumerate(cluster_attributes):
-            for j, u_j in enumerate(cluster_attributes[i+1:]):
+        for i, u_i in enumerate(cluster_of_attributes):
+            for _, u_j in enumerate(cluster_of_attributes[i+1:]):
                ent += entropy(similarity_measure(u_i,u_j))
         return ent
 
-
+def total_entropy(list_communities):
+    """ computes the total entropy of a list of communities in a network.
+        - input: a list of communities made of their list of attributes
+        - output: total entropy of all communities (entropy calculation
+        based on similarity measure attribute_match)"""
+    ent = 0.    
+    for i, cluster_of_attributes in enumerate(list_communities):
+        ent += cluster_entropy(cluster_of_attributes)
+    return ent
