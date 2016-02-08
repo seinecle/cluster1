@@ -36,6 +36,9 @@ graph[18][6] = 1
 # trivial attributes
 attributes = [[0] for _ in range(20)]
 
+# random binary attributes
+import random
+bin_attributes = [[random.choice(range(2)) for _ in range(2)] for _ in range(20)]
 
-
+bin_3d_attributes = [[random.choice(range(3)) for _ in range(3)] for _ in range(20)]
 
