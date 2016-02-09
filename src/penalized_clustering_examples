@@ -1,0 +1,513 @@
+##
+#
+# topological clustering on graph_2 (alpha_mod=1., alpha_ent=0.):
+#
+##
+new gain after fuse:  -0.01900656204209051
+new gain after fuse:  -0.014828303850156085
+new gain after fuse:  -0.008560916562254451
+new gain after fuse:  -0.00020440017838560878
+new gain after fuse:  0.010241245301450447
+new gain after fuse:  0.02277601987725371
+new gain after fuse:  0.03723268703943596
+new gain after fuse:  0.05372804688993183
+new gain after fuse:  0.07226209942874132
+new gain after fuse:  0.07360795514876085
+new gain after fuse:  0.07629966658879994
+new gain after fuse:  0.08033723374885855
+new gain after fuse:  0.0857206566289367
+new gain after fuse:  0.09244993522903439
+new gain after fuse:  0.10052506954915161
+new gain after fuse:  0.10994605958928837
+new gain after fuse:  0.12071290534944466
+new gain after fuse:  0.1328256068296205
+new gain after fuse:  0.14628416402981587
+new gain after fuse:  0.16108857695003082
+new gain after fuse:  0.17723884559026526
+new gain after fuse:  0.1947349699505192
+new gain after fuse:  0.21287084032364248
+new gain after fuse:  0.23224903905370683
+new gain after fuse:  0.2528695661407123
+new gain after fuse:  0.2747324215846588
+new gain after fuse:  0.2978376053855465
+new gain after fuse:  0.3221851175433753
+new gain after fuse:  0.32353097326339486
+new gain after fuse:  0.32622268470343385
+new gain after fuse:  0.3302602518634925
+new gain after fuse:  0.3356436747435707
+new gain after fuse:  0.34237295334366835
+new gain after fuse:  0.3504480876637856
+new gain after fuse:  0.35986907770392235
+new gain after fuse:  0.37063592346407864
+new gain after fuse:  0.3827486249442545
+new gain after fuse:  0.3962071821444499
+new gain after fuse:  0.41101159506466484
+new gain after fuse:  0.42655662681305617
+new gain after fuse:  0.44334398691838856
+new gain after fuse:  0.4613736753806622
+new gain after fuse:  0.48064569219987674
+new gain after fuse:  0.5011600373760325
+new gain after fuse:  0.5229167109091295
+new gain after fuse:  0.5459157127991675
+new gain after fuse:  0.5691801694663298
+
+Final communities are: 
+community  0  :
+Nodes:  [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14], [15], [16], [17], [18], [19]]
+Attributes:  [[0, 0, 0], [0, 0, 0], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 1, 1], [0, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 1, 0], [1, 1, 0], [1, 1, 1]]
+Entropy of community : 92.29455440274752
+
+community  1  :
+Nodes:  [[20], [21], [22], [23], [24], [25], [26], [27], [28], [29], [30], [31], [32], [33], [34], [35], [36], [37], [38], [39]]
+Attributes:  [[0, 0, 0], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 1, 0], [0, 1, 0], [0, 1, 1], [0, 1, 1], [0, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 1], [1, 0, 1], [1, 1, 0], [1, 1, 0], [1, 1, 1], [1, 1, 1]]
+Entropy of community : 92.29455440274752
+
+community  2  :
+Nodes:  [[40], [41], [42], [43], [44], [45], [46], [47], [48], [49]]
+Attributes:  [[0, 0, 0], [0, 0, 1], [0, 0, 1], [0, 1, 0], [0, 1, 0], [0, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0]]
+Entropy of community : 22.277995890318447
+
+
+##
+#
+# entropy penalized clustering on graph_2 (alpha_mod=1., alpha_ent=0.001):
+# (get same result with alpha_ent=0.002)
+##
+new gain after fuse:  -0.01900656204209051
+new gain after fuse:  -0.014828303850156085
+new gain after fuse:  -0.00863258935207798
+new gain after fuse:  -0.0028460205713295625
+new gain after fuse:  0.005029677305386068
+new gain after fuse:  0.014848504150650612
+new gain after fuse:  0.024969026784475042
+new gain after fuse:  0.036542164345971885
+new gain after fuse:  0.049984103538422864
+new gain after fuse:  0.0513299592584424
+new gain after fuse:  0.05402167069848149
+new gain after fuse:  0.0580592378585401
+new gain after fuse:  0.06324091510800388
+new gain after fuse:  0.06966492071440877
+new gain after fuse:  0.07382009720944993
+new gain after fuse:  0.07932112942451063
+new gain after fuse:  0.08575921700281966
+new gain after fuse:  0.09199198174538137
+new gain after fuse:  0.09957060220796268
+new gain after fuse:  0.10793231426306026
+new gain after fuse:  0.11753635467509896
+new gain after fuse:  0.12650561280925246
+new gain after fuse:  0.1368207266634255
+new gain after fuse:  0.1484816962376181
+new gain after fuse:  0.16148852153183021
+new gain after fuse:  0.1758412025460619
+new gain after fuse:  0.19153973928031304
+new gain after fuse:  0.20761256725030935
+new gain after fuse:  0.2089584229703289
+new gain after fuse:  0.2116501344103679
+new gain after fuse:  0.21568770157042655
+new gain after fuse:  0.22107112445050475
+new gain after fuse:  0.2278004030506024
+new gain after fuse:  0.2355729189247981
+new gain after fuse:  0.24048787337921756
+new gain after fuse:  0.24634253774465661
+new gain after fuse:  0.2534395304670367
+new gain after fuse:  0.2603816367613232
+new gain after fuse:  0.2686695987756293
+new gain after fuse:  0.27769021597479804
+new gain after fuse:  0.2879531615309078
+new gain after fuse:  0.29763176121678614
+new gain after fuse:  0.3086562166226838
+new gain after fuse:  0.3210265277486011
+new gain after fuse:  0.3338720029255707
+new gain after fuse:  0.3479598064594813
+new gain after fuse:  0.3623130647705163
+
+Final communities are: 
+community  0  :
+Nodes:  [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14], [15], [16], [17], [18], [19]]
+Attributes:  [[0, 0, 0], [0, 0, 0], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 1, 1], [0, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 1, 0], [1, 1, 0], [1, 1, 1]]
+
+community  1  :
+Nodes:  [[20], [21], [22], [23], [24], [25], [26], [27], [28], [29], [30], [31], [32], [33], [34], [35], [36], [37], [38], [39]]
+Attributes:  [[0, 0, 0], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 1, 0], [0, 1, 0], [0, 1, 1], [0, 1, 1], [0, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 1], [1, 0, 1], [1, 1, 0], [1, 1, 0], [1, 1, 1], [1, 1, 1]]
+
+community  2  :
+Nodes:  [[40], [41], [42], [43], [44], [45], [46], [47], [48], [49]]
+Attributes:  [[0, 0, 0], [0, 0, 1], [0, 0, 1], [0, 1, 0], [0, 1, 0], [0, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0]]
+
+
+
+
+
+
+##
+#
+# entropy penalized clustering on graph_2 (alpha_mod=1., alpha_ent=0.003):
+# (get same result with alpha_ent=0.0021)
+##
+new gain after fuse:  -0.01900656204209051
+new gain after fuse:  -0.014828303850156085
+new gain after fuse:  -0.00863258935207798
+new gain after fuse:  -0.006543460256110769
+new gain after fuse:  -0.002412983924058698
+new gain after fuse:  -0.0003477457580326575
+new gain after fuse:  0.001637402277601143
+new gain after fuse:  0.003883505227864549
+new gain after fuse:  0.005428111757785972
+new gain after fuse:  0.006773967477805509
+new gain after fuse:  0.009465678917844597
+new gain after fuse:  0.013503246077903208
+new gain after fuse:  0.018684923327366987
+new gain after fuse:  0.025108928933771882
+new gain after fuse:  0.026454784653791405
+new gain after fuse:  0.029045623278523322
+new gain after fuse:  0.030391478998542845
+new gain after fuse:  0.032982317623274734
+new gain after fuse:  0.03681548460494774
+new gain after fuse:  0.03816134032496728
+new gain after fuse:  0.04085305176500635
+new gain after fuse:  0.04489061892506496
+new gain after fuse:  0.050274041805143097
+new gain after fuse:  0.057003320405240795
+new gain after fuse:  0.06477583627943644
+new gain after fuse:  0.06612169199945601
+new gain after fuse:  0.06881340343949506
+new gain after fuse:  0.07285097059955369
+new gain after fuse:  0.07823439347963183
+new gain after fuse:  0.08496367207972953
+new gain after fuse:  0.0927361879539252
+new gain after fuse:  0.09408204367394472
+new gain after fuse:  0.09667288229867659
+new gain after fuse:  0.10050604928034963
+new gain after fuse:  0.10185190500036916
+new gain after fuse:  0.10454361644040826
+new gain after fuse:  0.10842987437750605
+new gain after fuse:  0.11355846067154503
+new gain after fuse:  0.11967188418871465
+new gain after fuse:  0.12096730350108058
+new gain after fuse:  0.12350505117038761
+
+Final communities are: 
+community  0  :
+Nodes:  [[0], [3], [8], [10], [13], [18]]
+Attributes:  [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 0], [1, 1, 0]]
+Entropy of community : 0.0
+
+community  1  :
+Nodes:  [[1], [5], [7], [9], [15], [17], [19]]
+Attributes:  [[1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1]]
+Entropy of community : 0.0
+
+community  2  :
+Nodes:  [[2], [11], [16]]
+Attributes:  [[0, 0, 0], [0, 0, 0], [1, 1, 1]]
+Entropy of community : 0.0
+
+community  3  :
+Nodes:  [[4], [6], [12], [14]]
+Attributes:  [[0, 1, 1], [0, 1, 1], [1, 0, 0], [1, 0, 0]]
+
+community  4  :
+Nodes:  [[20], [21], [23], [27], [29], [33], [39]]
+Attributes:  [[0, 1, 1], [0, 1, 1], [0, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 0]]
+Entropy of community : 0.0
+
+community  5  :
+Nodes:  [[22], [31], [34], [35], [37], [38]]
+Attributes:  [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 0], [1, 1, 0]]
+Entropy of community : 0.0
+
+community  6  :
+Nodes:  [[24], [28], [36]]
+Attributes:  [[0, 0, 0], [1, 1, 1], [1, 1, 1]]
+Entropy of community : 0.0
+
+community  7  :
+Nodes:  [[25], [26], [30], [32]]
+Attributes:  [[0, 1, 0], [0, 1, 0], [1, 0, 1], [1, 0, 1]]
+Entropy of community : 0.0
+
+community  8  :
+Nodes:  [[40], [41], [42], [43], [44], [45], [46], [47], [48], [49]]
+Attributes:  [[0, 0, 0], [0, 0, 1], [0, 0, 1], [0, 1, 0], [0, 1, 0], [0, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0]]
+Entropy of community : 22.277995890318447
+
+##
+#
+# entropy penalized clustering on graph_2 (alpha_mod=1., alpha_ent=0.005):
+#
+##
+new gain after fuse:  -0.01900656204209051
+new gain after fuse:  -0.014828303850156085
+new gain after fuse:  -0.00863258935207798
+new gain after fuse:  -0.006543460256110769
+new gain after fuse:  -0.002412983924058698
+new gain after fuse:  -0.0003477457580326575
+new gain after fuse:  0.000998109961986876
+new gain after fuse:  0.00368982140202595
+new gain after fuse:  0.007727388562084565
+new gain after fuse:  0.012909065811548347
+new gain after fuse:  0.019333071417953235
+new gain after fuse:  0.020678927137972772
+new gain after fuse:  0.023269765762704668
+new gain after fuse:  0.024615621482724198
+new gain after fuse:  0.027206460107456087
+new gain after fuse:  0.031039627089129093
+new gain after fuse:  0.03238548280914863
+new gain after fuse:  0.03507719424918772
+new gain after fuse:  0.03911476140924633
+new gain after fuse:  0.04449818428932447
+new gain after fuse:  0.051227462889422155
+new gain after fuse:  0.058999978763617844
+new gain after fuse:  0.06034583448363737
+new gain after fuse:  0.06303754592367644
+new gain after fuse:  0.06707511308373505
+new gain after fuse:  0.0724585359638132
+new gain after fuse:  0.07918781456391089
+new gain after fuse:  0.08696033043810655
+new gain after fuse:  0.0883061861581261
+new gain after fuse:  0.09089702478285798
+new gain after fuse:  0.09473019176453097
+new gain after fuse:  0.09607604748455054
+new gain after fuse:  0.09876775892458961
+new gain after fuse:  0.10265401686168744
+new gain after fuse:  0.10778260315572638
+new gain after fuse:  0.11389602667289601
+new gain after fuse:  0.11519144598526194
+new gain after fuse:  0.117729193654569
+
+Final communities are: 
+community  0  :
+Nodes:  [[0], [3], [8], [10], [13], [18]]
+Attributes:  [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 0], [1, 1, 0]]
+
+community  1  :
+Nodes:  [[1], [5], [7], [9], [15], [17], [19]]
+Attributes:  [[1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1]]
+
+community  2  :
+Nodes:  [[2], [11], [16]]
+Attributes:  [[0, 0, 0], [0, 0, 0], [1, 1, 1]]
+
+community  3  :
+Nodes:  [[4], [6], [12], [14]]
+Attributes:  [[0, 1, 1], [0, 1, 1], [1, 0, 0], [1, 0, 0]]
+
+community  4  :
+Nodes:  [[20], [21], [23], [27], [29], [33], [39]]
+Attributes:  [[0, 1, 1], [0, 1, 1], [0, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 0]]
+
+community  5  :
+Nodes:  [[22], [31], [34], [35], [37], [38]]
+Attributes:  [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 0], [1, 1, 0]]
+
+community  6  :
+Nodes:  [[24], [28], [36]]
+Attributes:  [[0, 0, 0], [1, 1, 1], [1, 1, 1]]
+
+community  7  :
+Nodes:  [[25], [26], [30], [32]]
+Attributes:  [[0, 1, 0], [0, 1, 0], [1, 0, 1], [1, 0, 1]]
+
+community  8  :
+Nodes:  [[40], [43], [46], [48]]
+Attributes:  [[0, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0]]
+
+community  9  :
+Nodes:  [[41], [45], [47]]
+Attributes:  [[0, 1, 0], [0, 1, 0], [0, 1, 0]]
+
+community  10  :
+Nodes:  [[42], [49]]
+Attributes:  [[0, 0, 1], [0, 0, 1]]
+
+community  11  :
+Nodes:  [44]
+Attributes:  [0, 0, 0]
+
+
+##
+#
+# entropy penalized clustering on graph_2 (alpha_mod=1., alpha_ent=0.009):
+#
+##
+new gain after fusing 2 nodes is:  -0.01900656204209051
+new gain after fusing 2 nodes is:  -0.014828303850156085
+new gain after fusing 2 nodes is:  -0.00863258935207798
+new gain after fusing 2 nodes is:  -0.006543460256110769
+new gain after fusing 2 nodes is:  -0.002412983924058698
+new gain after fusing 2 nodes is:  -0.0003477457580326575
+new gain after fusing 2 nodes is:  0.000998109961986876
+new gain after fusing 2 nodes is:  0.00368982140202595
+new gain after fusing 2 nodes is:  0.007727388562084565
+new gain after fusing 2 nodes is:  0.012909065811548347
+new gain after fusing 2 nodes is:  0.019333071417953235
+new gain after fusing 2 nodes is:  0.020678927137972772
+new gain after fusing 2 nodes is:  0.023269765762704668
+new gain after fusing 2 nodes is:  0.024615621482724198
+new gain after fusing 2 nodes is:  0.027206460107456087
+new gain after fusing 2 nodes is:  0.031039627089129093
+new gain after fusing 2 nodes is:  0.03238548280914863
+new gain after fusing 2 nodes is:  0.03507719424918772
+new gain after fusing 2 nodes is:  0.03911476140924633
+new gain after fusing 2 nodes is:  0.04449818428932447
+new gain after fusing 2 nodes is:  0.051227462889422155
+new gain after fusing 2 nodes is:  0.058999978763617844
+new gain after fusing 2 nodes is:  0.06034583448363737
+new gain after fusing 2 nodes is:  0.06303754592367644
+new gain after fusing 2 nodes is:  0.06707511308373505
+new gain after fusing 2 nodes is:  0.0724585359638132
+new gain after fusing 2 nodes is:  0.07918781456391089
+new gain after fusing 2 nodes is:  0.08696033043810655
+new gain after fusing 2 nodes is:  0.0883061861581261
+new gain after fusing 2 nodes is:  0.09089702478285798
+new gain after fusing 2 nodes is:  0.09473019176453097
+new gain after fusing 2 nodes is:  0.09607604748455054
+new gain after fusing 2 nodes is:  0.09876775892458961
+new gain after fusing 2 nodes is:  0.10265401686168744
+new gain after fusing 2 nodes is:  0.10778260315572638
+new gain after fusing 2 nodes is:  0.11389602667289601
+new gain after fusing 2 nodes is:  0.11519144598526194
+new gain after fusing 2 nodes is:  0.117729193654569
+
+Final communities are: 
+community  0  :
+Nodes:  [[0], [3], [8], [10], [13], [18]]
+Attributes:  [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 0], [1, 1, 0]]
+
+community  1  :
+Nodes:  [[1], [5], [7], [9], [15], [17], [19]]
+Attributes:  [[1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1]]
+
+community  2  :
+Nodes:  [[2], [11], [16]]
+Attributes:  [[0, 0, 0], [0, 0, 0], [1, 1, 1]]
+
+community  3  :
+Nodes:  [[4], [6], [12], [14]]
+Attributes:  [[0, 1, 1], [0, 1, 1], [1, 0, 0], [1, 0, 0]]
+
+community  4  :
+Nodes:  [[20], [21], [23], [27], [29], [33], [39]]
+Attributes:  [[0, 1, 1], [0, 1, 1], [0, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 0]]
+
+community  5  :
+Nodes:  [[22], [31], [34], [35], [37], [38]]
+Attributes:  [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 0], [1, 1, 0]]
+
+community  6  :
+Nodes:  [[24], [28], [36]]
+Attributes:  [[0, 0, 0], [1, 1, 1], [1, 1, 1]]
+
+community  7  :
+Nodes:  [[25], [26], [30], [32]]
+Attributes:  [[0, 1, 0], [0, 1, 0], [1, 0, 1], [1, 0, 1]]
+
+community  8  :
+Nodes:  [[40], [43], [46], [48]]
+Attributes:  [[0, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0]]
+
+community  9  :
+Nodes:  [[41], [45], [47]]
+Attributes:  [[0, 1, 0], [0, 1, 0], [0, 1, 0]]
+
+community  10  :
+Nodes:  [[42], [49]]
+Attributes:  [[0, 0, 1], [0, 0, 1]]
+
+community  11  :
+Nodes:  [44]
+Attributes:  [0, 0, 0]
+
+
+##
+#
+# entropy penalized clustering on graph_2 (alpha_mod=1., alpha_ent=0.1):
+# (get same results with alpha_ent = 5., 10., 100… entropy of all clusters is 0!)
+##
+new gain after fuse:  -0.01900656204209051
+new gain after fuse:  -0.014828303850156085
+new gain after fuse:  -0.00863258935207798
+new gain after fuse:  -0.006543460256110769
+new gain after fuse:  -0.002412983924058698
+new gain after fuse:  -0.0003477457580326575
+new gain after fuse:  0.000998109961986876
+new gain after fuse:  0.00368982140202595
+new gain after fuse:  0.007727388562084565
+new gain after fuse:  0.012909065811548347
+new gain after fuse:  0.019333071417953235
+new gain after fuse:  0.020678927137972772
+new gain after fuse:  0.023269765762704668
+new gain after fuse:  0.024615621482724198
+new gain after fuse:  0.027206460107456087
+new gain after fuse:  0.031039627089129093
+new gain after fuse:  0.03238548280914863
+new gain after fuse:  0.03507719424918772
+new gain after fuse:  0.03911476140924633
+new gain after fuse:  0.04449818428932447
+new gain after fuse:  0.051227462889422155
+new gain after fuse:  0.058999978763617844
+new gain after fuse:  0.06034583448363737
+new gain after fuse:  0.06303754592367644
+new gain after fuse:  0.06707511308373505
+new gain after fuse:  0.0724585359638132
+new gain after fuse:  0.07918781456391089
+new gain after fuse:  0.08696033043810655
+new gain after fuse:  0.0883061861581261
+new gain after fuse:  0.09089702478285798
+new gain after fuse:  0.09473019176453097
+new gain after fuse:  0.09607604748455054
+new gain after fuse:  0.09876775892458961
+new gain after fuse:  0.10265401686168744
+new gain after fuse:  0.10778260315572638
+new gain after fuse:  0.11389602667289601
+new gain after fuse:  0.11519144598526194
+new gain after fuse:  0.117729193654569
+
+Final communities are: 
+community  0  :
+Nodes:  [[0], [3], [8], [10], [13], [18]]
+Attributes:  [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 0], [1, 1, 0]]
+
+community  1  :
+Nodes:  [[1], [5], [7], [9], [15], [17], [19]]
+Attributes:  [[1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1], [1, 0, 1]]
+
+community  2  :
+Nodes:  [[2], [11], [16]]
+Attributes:  [[0, 0, 0], [0, 0, 0], [1, 1, 1]]
+
+community  3  :
+Nodes:  [[4], [6], [12], [14]]
+Attributes:  [[0, 1, 1], [0, 1, 1], [1, 0, 0], [1, 0, 0]]
+
+community  4  :
+Nodes:  [[20], [21], [23], [27], [29], [33], [39]]
+Attributes:  [[0, 1, 1], [0, 1, 1], [0, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 0]]
+
+community  5  :
+Nodes:  [[22], [31], [34], [35], [37], [38]]
+Attributes:  [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 0], [1, 1, 0]]
+
+community  6  :
+Nodes:  [[24], [28], [36]]
+Attributes:  [[0, 0, 0], [1, 1, 1], [1, 1, 1]]
+
+community  7  :
+Nodes:  [[25], [26], [30], [32]]
+Attributes:  [[0, 1, 0], [0, 1, 0], [1, 0, 1], [1, 0, 1]]
+
+community  8  :
+Nodes:  [[40], [43], [46], [48]]
+Attributes:  [[0, 1, 1], [1, 0, 0], [1, 0, 0], [1, 0, 0]]
+
+community  9  :
+Nodes:  [[41], [45], [47]]
+Attributes:  [[0, 1, 0], [0, 1, 0], [0, 1, 0]]
+
+community  10  :
+Nodes:  [[42], [49]]
+Attributes:  [[0, 0, 1], [0, 0, 1]]
+
+community  11  :
+Nodes:  [44]
+Attributes:  [0, 0, 0]

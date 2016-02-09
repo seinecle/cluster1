@@ -15,14 +15,14 @@ import entropy_functions
 
 
 # initialize network
-initial_graph = copy.deepcopy(graph)
+initial_graph = copy.deepcopy(graph_2)
 network = Network(initial_graph)
-network.node_attributes = copy.deepcopy(bin_attributes)
-#network.node_attributes = copy.deepcopy(bin_3d_attributes)
+#network.node_attributes = copy.deepcopy(bin_attributes)
+network.node_attributes = copy.deepcopy(attributes_2)
 
 # parameter for penalization
 alpha_mod = 1.
-alpha_ent = 0.0085
+alpha_ent = 0.003
 
 # initialize communities (1 per node)
 communities = [ [i] for i,_ in enumerate(initial_graph)]
@@ -53,7 +53,7 @@ for _ in range(iter):
     
     # fuse pairs with highest modularity increase
     if gain_after_fuse > gain_before_fuse:
-        print("new gain after fusing 2 nodes is: ", gain_after_fuse)
+        print("new gain after fuse: ", gain_after_fuse)
         network.fuse_nodes(i_keep,i_remove, method= list_merge)
         communities[i_keep] = list_merge(communities[i_keep],communities[i_remove])
         del communities[i_remove]
@@ -66,9 +66,10 @@ for _ in range(iter):
 print()
 print("Final communities are: ")
 for i, comm in enumerate(communities):
-    print("community ", i," :")
-    print("Nodes: ", sorted(comm))
-    print("Attributes: ", sorted(network.node_attributes[i]))
+    print("Community ", i," :")
+    print("- nodes : ", sorted(comm))
+    print("- attributes : ", sorted(network.node_attributes[i]))
+    print("- entropy :", cluster_entropy(network.node_attributes[i]))
     print()
 
 
