@@ -70,7 +70,47 @@ graph_2[48][36] = 1
 
 
 
+# idem for graph_3 with 4 communities
+graph_3 = [ [0 for _ in range(70)] for _ in range(70)]
 
+for i in range(20):
+    graph_3[i][0:20]=bloc_2[i]
+    graph_3[i+20][20:40]=bloc_2[i]
+    graph_3[i+50][50:70]=bloc_2[i]
+
+for i in range(10):
+        graph_3[i+40][40:50]=bloc[i]
+
+graph_3[1][22] = 1
+graph_3[22][1] = 1
+graph_3[3][25] = 1
+graph_3[25][3] = 1
+graph_3[6][28] = 1
+graph_3[28][6] = 1
+graph_3[14][32] = 1
+graph_3[32][14] = 1
+graph_3[14][68] = 1
+graph_3[68][14] = 1
+graph_3[16][35] = 1
+graph_3[35][16] = 1
+graph_3[18][38] = 1
+graph_3[38][18] = 1
+graph_3[22][42] = 1
+graph_3[42][22] = 1
+graph_3[33][45] = 1
+graph_3[45][33] = 1
+graph_3[36][48] = 1
+graph_3[48][36] = 1
+graph_3[53][10] = 1
+graph_3[10][53] = 1
+graph_3[58][22] = 1
+graph_3[22][58] = 1
+graph_3[63][35] = 1
+graph_3[35][63] = 1
+graph_3[65][55] = 1
+graph_3[55][65] = 1
+graph_3[68][21] = 1
+graph_3[21][68] = 1
 
 
 # trivial attributes
@@ -86,3 +126,8 @@ bin_3d_attributes = [[random.choice(range(2)) for _ in range(3)]
 
 attributes_2 = [[random.choice(range(2)) for _ in range(3)] 
                         for _ in range(50)]
+
+attributes_3 = [[random.choice(range(2)) for _ in range(3)] 
+                        for _ in range(70)]
+
+ 
