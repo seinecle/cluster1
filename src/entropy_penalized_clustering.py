@@ -15,19 +15,20 @@ import entropy_functions
 
 
 # initialize network
-initial_graph = copy.deepcopy(graph_2)
-network = Network(initial_graph)
-#network.node_attributes = copy.deepcopy(bin_attributes)
-network.node_attributes = copy.deepcopy(attributes_2)
+sym_mat = Sym_mat(graph_3)
+attributes = blist(attributes_3)
+network = Network(sym_mat = sym_mat, node_attributes = attributes)
+
 
 # parameter for penalization
 alpha_mod = 1.
-alpha_ent = 0.003
+alpha_ent = 0.004
 
 # initialize communities (1 per node)
-communities = [ [i] for i,_ in enumerate(initial_graph)]
+communities = blist([ [i] for i,_ in enumerate(sym_mat.matrix)])
 
 iter = len(communities)
+#m = tot_num_edges(sym_mat.matrix) # could use m as arg for modularity
 
 for _ in range(iter):
     
