@@ -53,27 +53,27 @@ def list_merge(list_keep,list_remove):
 class Network:
     """class of networks: graphs (non oriented), with attributes, and node degrees"""
 
-    def __init__(self, sym_mat = None, node_attributes = None):
+    def __init__(self, sym_mat = None): #, node_attributes = None):
         """ - sym_mat : ajacency matrix of the graph, symetric, class Sym_mat
             - nodes_attributes : matrix, size n * n_a, where n_a is the number 
             of attributes, ie lines = vectors representing nodes attributes.
             By default this is an empty list (graph without attributes). """        
         if sym_mat is None:
             self.graph = Sym_mat() 
-            self.node_attributes = blist([])
+            #self.node_attributes = blist([])
             self.node_degrees = blist([])
             self.tot_num_edges = 0
         else:
             self.graph = sym_mat
             self.node_degrees = get_graph_degrees_sym(sym_mat)
             self.tot_num_edges = tot_num_edges(sym_mat.matrix)
-            if node_attributes is None:
-                self.node_attributes = blist([])
-            else: 
-                if len(sym_mat.matrix) == len(node_attributes):
-                    self.node_attributes = blist(node_attributes)
-                else:
-                    print("sizes of attributes' list and graph matrix don't match!")
+            #if node_attributes is None:
+            #    self.node_attributes = blist([])
+            #else: 
+            #    if len(sym_mat.matrix) == len(node_attributes):
+            #        self.node_attributes = blist(node_attributes)
+            #    else:
+            #        print("sizes of attributes' list and graph matrix don't match!")
 
    
     def modularity_bare(self, tot_num_edges = None):
@@ -88,7 +88,7 @@ class Network:
         q_2 = sum( d ** 2 for d in self.node_degrees) / 4 / m / m 
         return q_1 - q_2
 
-    def fuse_nodes(self,node_1,node_2, method = vect_add):
+    def fuse_nodes(self,node_1,node_2): #, method = vect_add):
         """ fuses two nodes, adds their degrees, merges their edges, and
         updates the adjacency matrix, and adds their attributes"""
         node_keep = min(node_1, node_2)
@@ -114,16 +114,16 @@ class Network:
         self.graph.delete_line(node_remove)
                 
         # add attributes # TO DO: choose a merging function
-        self.node_attributes[node_keep] = method(self.node_attributes[node_keep], 
-                                                self.node_attributes[node_remove])
-        del self.node_attributes[node_remove]
+        #self.node_attributes[node_keep] = method(self.node_attributes[node_keep], 
+        #                                        self.node_attributes[node_remove])
+        #del self.node_attributes[node_remove]
 
         return self
         
     def copy(self):
         net = Network()
         net.graph = copy.deepcopy(self.graph)
-        net.node_attributes = copy.deepcopy(self.node_attributes)
+        #net.node_attributes = copy.deepcopy(self.node_attributes)
         net.node_degrees = copy.deepcopy(self.node_degrees)
         net.tot_num_edges = self.tot_num_edges
         return net

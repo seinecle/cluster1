@@ -16,48 +16,72 @@ import entropy_functions
 
 # initialize network
 sym_mat = Sym_mat(graph_3)
-attributes = blist(attributes_3)
-network = Network(sym_mat = sym_mat, node_attributes = attributes)
+att = blist(attributes_3)
+network = Network(sym_mat = sym_mat) #, node_attributes = attributes)
 
 
 # parameter for penalization
 alpha_mod = 1.
-alpha_ent = 0.004
+alpha_ent = 0.003 #
 
 # initialize communities (1 per node)
-communities = blist([ [i] for i,_ in enumerate(sym_mat.matrix)])
+communities = blist([ blist([i]) for i,_ in enumerate(att)])
+
 
 iter = len(communities)
-#m = tot_num_edges(sym_mat.matrix) # could use m as arg for modularity
+m = tot_num_edges(sym_mat.matrix) # could use m as arg for modularity
+
+# initialize entropy and gain
+community_entropy = blist([ 0. for i,_ in enumerate(att)])
+entropy_after_fuse = 0.
+gain_after_fuse = alpha_mod * network.modularity_bare()
+
 
 for _ in range(iter):
     
-    gain_before_fuse = (alpha_mod * network.modularity_bare()
-                        - alpha_ent * total_entropy(network.node_attributes))
-    gain_after_fuse = gain_before_fuse
-    gain_old = gain_before_fuse
+    entropy_before_fuse = entropy_after_fuse    
+    gain_before_fuse = gain_after_fuse
+    delta_gain_old = 0.
     
-    # test all pairs of nodes for fusion
-    for i, _ in enumerate(communities):
-        for j in range(i+1,len(communities)):
-            net = network.copy()
-            net.fuse_nodes(i,j, method= list_merge)
-            gain_new = (alpha_mod * net.modularity_bare() 
-                        - alpha_ent * total_entropy(net.node_attributes))
+    # test all pairs of communities for fusion
+    for i, comm_i in enumerate(communities):
+        for k, comm_j in enumerate(communities[i+1:]):
+            j=i+1+k # b/c enumerate(communities[i+1:]) starts at k=0
 
-            # keep record of pair with highest modularity increase
-            if gain_new > gain_old:
-                gain_after_fuse = gain_new
+            delta_entropy = cross_community_entropy(comm_i,comm_j,att)
+            delta_modularity = ( network.graph.coef(i,j) / m 
+                                - network.node_degrees[i] 
+                                * network.node_degrees[j] / 2 / m / m )
+            delta_gain_new = ( alpha_mod * delta_modularity
+                                - alpha_ent * delta_entropy )
+            
+            # keep record of pair with highest gain increase
+            if delta_gain_new > delta_gain_old:
+                delta_gain_after_fuse = delta_gain_new
+                gain_after_fuse = gain_before_fuse + delta_gain_after_fuse
+                delta_entropy_after_fuse = delta_entropy
                 i_keep = i
                 i_remove = j
-                gain_old = gain_after_fuse
+                delta_gain_old = delta_gain_new
     
-    # fuse pairs with highest modularity increase
+    # fuse pairs with highest gain increase
     if gain_after_fuse > gain_before_fuse:
-        print("new gain after fuse: ", gain_after_fuse)
-        network.fuse_nodes(i_keep,i_remove, method= list_merge)
-        communities[i_keep] = list_merge(communities[i_keep],communities[i_remove])
+        # update gain and print it with selected pairs
+        #gain_after_fuse = gain_before_fuse + delta_gain_after_fuse
+        print("fused communities ", i_keep, "& ", i_remove,
+              " gain increase: ", delta_gain_after_fuse)
+                
+        # update entropy
+        entropy_after_fuse = entropy_before_fuse + delta_entropy_after_fuse
+        community_entropy[i_keep] += ( community_entropy[i_remove] 
+                                        + delta_entropy_after_fuse )
+        del community_entropy[i_remove]
+
+        # fuse selected pairs and update communities
+        network.fuse_nodes(i_keep,i_remove)
+        communities[i_keep] = communities[i_keep] + communities[i_remove]
         del communities[i_remove]
+    
     # if no fusing was performed, terminate
     else:
         break
@@ -69,8 +93,9 @@ print("Final communities are: ")
 for i, comm in enumerate(communities):
     print("Community ", i," :")
     print("- nodes : ", sorted(comm))
-    print("- attributes : ", sorted(network.node_attributes[i]))
-    print("- entropy :", cluster_entropy(network.node_attributes[i]))
+    # TO DO : print communities attributes (as sets, with multiplicity)
+    #print("- attributes : ", sorted(network.node_attributes[i]))
+    print("- entropy :", community_entropy[i])
     print()
 
 

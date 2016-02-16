@@ -36,15 +36,17 @@ def cluster_match(cluster_attributes):
         return match
 
 
-def entropy(p):
+# it looks like the name "entropy" is used by some libraries I'm using...
+# so I'm calling this function "entropie"
+def entropie(p):
     """ computes -p * log(p) - (1-p) * log (1-p) """
-    if p > 0 and p < 1:
-        q = 1 - p
+    if p > 0. and p < 1.:
+        q = 1. - p
         return - p*math.log(p) - q * math.log(q)
-    elif p > 0:
+    elif p > 0.:
         return - p*math.log(p)
-    elif p<1:
-        q = 1 - p
+    elif p<1.:
+        q = 1. - p
         return - q * math.log(q)
     else:
         return 0.
@@ -67,8 +69,22 @@ def cluster_entropy(community, similarity_measure = attribute_match):
         ent = 0.
         for i, att_i in enumerate(community):
             for _, att_j in enumerate(community[i+1:]):
-               ent += entropy(similarity_measure(att_i,att_j))
+               ent += entropie(similarity_measure(att_i,att_j))
         return ent
+
+def cross_community_entropy(community_1, community_2, attributes,
+                            similarity_measure = attribute_match):
+    """ computes the "cross entropy" of attributes in community_1 and attributes
+        community_2: the sum of entropy(attributes(i_1),attributes(i_2)) for 
+        i_i in community_i, i=1,2. """
+    ent = 0.
+    #for _,i_1 in enumerate(community_1):
+    #    for _,i_2 in enumerate(community_2):
+    #        ent += entropy(similarity_measure(attributes[i_1],attributes[i_2]))
+    for i_1 in community_1:
+        for i_2 in community_2:
+            ent += entropie(similarity_measure(attributes[i_1],attributes[i_2]))
+    return ent
 
 
 def total_entropy(list_communities):
