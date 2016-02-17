@@ -12,18 +12,17 @@ import scipy as sp
 import graph_build
 import network_class
 import entropy_functions
-
+from collections import Counter
 
 # initialize network
-sym_mat = Sym_mat(graph_3)
-att = blist(attributes_3)
-network = Network(sym_mat = sym_mat) #, node_attributes = attributes)
-
+sym_mat = Sym_mat(graph_5)
+att = blist(attributes_5)
+network = Network(sym_mat = sym_mat)
 
 # parameter for penalization
 alpha_mod = 1.
-alpha_ent = 0.003 #
-
+alpha_ent = 0.00005 #
+ 
 # initialize communities (1 per node)
 communities = blist([ blist([i]) for i,_ in enumerate(att)])
 
@@ -67,9 +66,8 @@ for _ in range(iter):
     # fuse pairs with highest gain increase
     if gain_after_fuse > gain_before_fuse:
         # update gain and print it with selected pairs
-        #gain_after_fuse = gain_before_fuse + delta_gain_after_fuse
-        print("fused communities ", i_keep, "& ", i_remove,
-              " gain increase: ", delta_gain_after_fuse)
+        print("Fused communities: ", i_keep, "& ", i_remove,
+              " --- Gain increase: ", delta_gain_after_fuse)
                 
         # update entropy
         entropy_after_fuse = entropy_before_fuse + delta_entropy_after_fuse
@@ -91,10 +89,15 @@ for _ in range(iter):
 print()
 print("Final communities are: ")
 for i, comm in enumerate(communities):
+    comm_att = []
+    for j in comm:
+        comm_att.append(tuple(att[j]))
     print("Community ", i," :")
     print("- nodes : ", sorted(comm))
-    # TO DO : print communities attributes (as sets, with multiplicity)
-    #print("- attributes : ", sorted(network.node_attributes[i]))
+    print("- attributes: ", end=' ' )
+    for val, vec in zip(Counter(comm_att).values(),Counter(comm_att).keys()):
+        print(list(vec), " (",val,")", sep='', end='  ')
+    print()
     print("- entropy :", community_entropy[i])
     print()
 
