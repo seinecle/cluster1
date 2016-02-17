@@ -39,13 +39,8 @@ class Sym_mat:
             s += self.coef(i,k)
         s -= self.coef(i,i)
         return s
-    
-    def return_line(self,i):
-        """ returns the full line #i """
 
-##
-#
+
 # would it be faster to implement lower diagonal matrices instead?!
-#
-##
+
 

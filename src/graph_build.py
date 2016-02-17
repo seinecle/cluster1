@@ -12,6 +12,8 @@ Created on Fri Feb  5 14:09:15 2016
 ##
 
 
+import random
+
 # elementary bloc for communities
 bloc = [ [1 for _ in range(10)] for _ in range(10)]
 for i, line_i in enumerate(bloc):
@@ -112,12 +114,83 @@ graph_3[55][65] = 1
 graph_3[68][21] = 1
 graph_3[21][68] = 1
 
+##
+#
+# random graphs with probable communities (graph_4 has 100 nodes, graph_5 500)
+#
+##
+graph_4 = [ [ 0 for _ in range(100)] for _ in range(100)]
+
+for i in range(100):
+    for j in range(100):
+        if i<= 50:
+            if j<= 50:
+                if random.random() <= 0.8:
+                    graph_4[i][j] = 1
+            else:
+                if random.random() <= 0.1:
+                    graph_4[i][j] = 1
+        if i>50:
+            if j>50:
+                 if random.random() <= 0.8:
+                    graph_4[i][j] = 1
+            else:
+                if random.random()<= 0.1:
+                    graph_4[i][j] = 1
+    if graph_4[i][i] == 1:
+        graph_4[i][i] = 0
+
+
+graph_5 = [ [ 0 for _ in range(500)] for _ in range(500) ]
+for i in range(500):
+    for j in range(500):
+        if i<= 100:
+            if j<= 100:
+                if random.random() <= 0.8:
+                    graph_5[i][j] = 1
+            else:
+                if random.random() <= 0.1:
+                    graph_5[i][j] = 1
+        if i>100 and i<=200:
+            if j>100 and j<=200:
+                 if random.random() <= 0.8:
+                    graph_5[i][j] = 1
+            else:
+                if random.random()<= 0.1:
+                    graph_5[i][j] = 1
+        if i>200 and i<=300:
+            if j>200 and j<=300:
+                 if random.random() <= 0.8:
+                    graph_5[i][j] = 1
+            else:
+                if random.random()<= 0.1:
+                    graph_5[i][j] = 1
+        if i>300 and i<=400:
+            if j>300 and j<=400:
+                 if random.random() <= 0.8:
+                    graph_5[i][j] = 1
+            else:
+                if random.random()<= 0.1:
+                    graph_5[i][j] = 1
+        if i>400:
+            if j>400:
+                 if random.random() <= 0.8:
+                    graph_5[i][j] = 1
+            else:
+                if random.random()<= 0.1:
+                    graph_5[i][j] = 1 
+    if graph_5[i][i] == 1:
+        graph_5[i][i] = 0
+
+
+
+
+
 
 # trivial attributes
 attributes = [[0] for _ in range(20)]
 
 # random binary attributes
-import random
 bin_attributes = [[random.choice(range(2)) for _ in range(2)] 
                     for _ in range(20)]
 
@@ -130,4 +203,8 @@ attributes_2 = [[random.choice(range(2)) for _ in range(3)]
 attributes_3 = [[random.choice(range(2)) for _ in range(3)] 
                         for _ in range(70)]
 
- 
+attributes_4 = [[random.choice(range(2)) for _ in range(3)] 
+                        for _ in range(100)]
+
+attributes_5 = [[random.choice(range(2)) for _ in range(3)] 
+                        for _ in range(500)]
