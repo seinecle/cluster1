@@ -47,7 +47,8 @@ for _ in range(iter):
         for k, comm_j in enumerate(communities[i+1:]):
             j=i+1+k # b/c enumerate(communities[i+1:]) starts at k=0
 
-            delta_entropy = cross_community_entropy(comm_i,comm_j,att)
+            delta_entropy = cross_community_entropy(comm_i,comm_j,att,
+                                                    similarity_measure=cosine_distance)
             delta_modularity = ( network.graph.coef(i,j) / m 
                                 - network.node_degrees[i] 
                                 * network.node_degrees[j] / 2 / m / m )
@@ -66,8 +67,8 @@ for _ in range(iter):
     # fuse pairs with highest gain increase
     if gain_after_fuse > gain_before_fuse:
         # update gain and print it with selected pairs
-        print("Fused communities: ", i_keep, "& ", i_remove,
-              " --- Gain increase: ", delta_gain_after_fuse)
+        print("Fused communities", i_keep, "&", i_remove,
+              "  Gain increase: ", delta_gain_after_fuse)
                 
         # update entropy
         entropy_after_fuse = entropy_before_fuse + delta_entropy_after_fuse
@@ -87,6 +88,9 @@ for _ in range(iter):
 
 # print final communities
 print()
+print("alpha_mod=",alpha_mod, " alpha_ent=", alpha_ent)
+print()
+print("Total entropy = ", entropy_after_fuse)
 print("Final communities are: ")
 for i, comm in enumerate(communities):
     comm_att = []
