@@ -184,6 +184,21 @@ for i in range(500):
 
 
 
+graph_6 = [ [ 0 for _ in range(1000)] for _ in range(1000) ]
+for i in range(1000):
+    for j in range(1000):
+        for k in range(10):
+            if i < (k+1)*100 and i >= k*100:
+                if j <= (k+1)*100 and j > k*100:
+                    if random.random() <= 0.7:
+                        graph_6[i][j] = 1
+                else:
+                    if random.random() <= .05:
+                        graph_6[i][j] = 1
+    if graph_6[i][i] == 1:
+        graph_6[i][i] = 0
+
+
 
 
 
@@ -208,3 +223,7 @@ attributes_4 = [[random.choice(range(2)) for _ in range(3)]
 
 attributes_5 = [[random.choice(range(2)) for _ in range(3)] 
                         for _ in range(500)]
+
+attributes_6 = [[random.choice(range(2)) for _ in range(3)] 
+                        for _ in range(1000)]
+
